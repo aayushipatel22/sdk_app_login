@@ -1,39 +1,140 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/tools/pub/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# Demo SDK
+A reusable Dart SDK that provides login functionality, username and password validation, and session management for Dart and Flutter applications.
 
 ## Features
+- SDK initialization
+- Username validation
+- Password validation
+- Login functionality
+- Session management
+- Current user information
+- Logout functionality
+- SDK version information
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Getting Started
 
-## Getting started
+### Requirements
+- Dart SDK 3.13.7 or above
+- Flutter SDK (if using in a Flutter application)
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+### Installation
+
+Add the following dependency to your application's `pubspec.yaml`:
+```yaml
+dependencies:
+  demo_sdk:
+    git:
+      url: https://github.com/aayushipatel22/sdk_app_login.git
+      ref: main
+```
+
+Run:
+```bash
+flutter pub get
+```
+
+For a Dart application, use:
+```bash
+dart pub get
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+### 1. Import the SDK
 ```dart
-const like = 'sample';
+import 'package:demo_sdk/demo_sdk.dart';
 ```
 
-## Additional information
+### 2. Initialize the SDK
+```dart
+LoginSdk.initialize();
+print(LoginSdk.isInitialized);
+```
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+### 3. Check SDK Version
+```dart
+print(LoginSdk.version);
+```
+
+### 4. Validate Username
+```dart
+final usernameError = LoginSdk.validateUsername('user');
+
+if (usernameError == null) {
+  print('Username is valid');
+} else {
+  print(usernameError);
+}
+```
+
+### 5. Validate Password
+```dart
+final passwordError = LoginSdk.validatePassword('123456');
+
+if (passwordError == null) {
+  print('Password is valid');
+} else {
+  print(passwordError);
+}
+```
+
+### 6. Login
+```dart
+final result = await LoginSdk.login(
+  username: 'user',
+  password: '123456',
+);
+
+if (result) {
+  print('Login successful');
+} else {
+  print('Login failed');
+}
+```
+
+### 7. Check Login Status
+```dart
+print(LoginSdk.isLoggedIn);
+```
+
+### 8. Get Current User
+```dart
+print(LoginSdk.currentUser?.username);
+```
+
+### 9. Logout
+```dart
+LoginSdk.logout();
+print(LoginSdk.isLoggedIn);
+```
+
+## Complete Example
+Refer to:
+```text
+example/demo_sdk_example.dart
+```
+
+Run the example using:
+```bash
+dart run example/demo_sdk_example.dart
+```
+
+## Running Tests
+Execute:
+```bash
+dart test
+```
+
+## SDK Information
+| Property   | Value                                           |
+|------------|-------------------------------------------------|
+| SDK Name   | demo_sdk                                        |
+| Version    | 1.0.0                                           |
+| Language   | Dart                                            |
+| Repository | https://github.com/aayushipatel22/sdk_app_login |
+
+## Important Note
+This SDK currently provides a demonstration of login and session-management functionality. Its login implementation should not be treated as production-grade authentication without appropriate backend authentication and security measures.
+
+## Support
+For issues, suggestions, or contributions, please open an issue in the GitHub repository.

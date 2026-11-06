@@ -1,7 +1,7 @@
 name: demo_sdk
-description: A starting point for Dart libraries or applications.
+description: A reusable Dart SDK providing login functionality, input validation, and session management.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/aayushipatel22/sdk_app_login
 
 environment:
   sdk: ^3.13.7
