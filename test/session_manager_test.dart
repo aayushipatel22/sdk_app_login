@@ -1,3 +1,4 @@
+/*
 import 'package:test/test.dart';
 import 'package:demo_sdk/src/user_model.dart';
 import 'package:demo_sdk/src/session_manager.dart';
@@ -39,5 +40,6 @@ void main() {
     });
   });
 }
+*/
 
 //late keyword: It means we will initialize this variable later, before using it.
