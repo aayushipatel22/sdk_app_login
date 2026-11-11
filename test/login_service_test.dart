@@ -1,4 +1,3 @@
-/*
 import 'package:test/test.dart';
 /* We are using the Dart testing package.
 group() groups related test cases.
@@ -48,4 +47,3 @@ void main() {
     });
   });
 }
-*/
